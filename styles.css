@@ -7,4 +7,5 @@
   height: 60px; /* 60px too since its a square */
   border: black;
   border-style: solid;
+  opacity: 0.1;
 }
