@@ -16,13 +16,24 @@ for (let i=0; i<16; i++){
 let boxes = document.querySelectorAll("div.box");
 
 boxes.forEach((box) => {
-  box.addEventListener("mouseenter", (e) => {
+  box.addEventListener("mouseenter", () => {
     box.style.backgroundColor = "blue";
   })
 })
 
 boxes.forEach((box) => {
-  box.addEventListener("mouseleave", (e) => {
+  box.addEventListener("mouseleave", () => {
     box.style.backgroundColor = "white";
-  })
+  });
+});
+
+// making the button to change size work
+let btn = document.querySelector("button.sizeChange")';
+
+btn.addEventListener("click", () => {
+  let numOfSqaures = prompt("Enter the number squares per side (maximum 100)");
+  boxes.forEach((box) => {
+    box.style.width = `960/${numOfSqaures}px`;
+    box.style.height = `960/${numOfSqaures}px`;
+  });
 })
