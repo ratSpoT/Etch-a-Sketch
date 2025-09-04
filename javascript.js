@@ -1,3 +1,4 @@
+// creating the grid
 let container = document.querySelector("div.container");
 
 for (let i=0; i<16; i++){
@@ -10,3 +11,18 @@ for (let i=0; i<16; i++){
   }
   container.appendChild(row);
 }
+
+// creating the hovering effect
+let boxes = document.querySelectorAll("div.box");
+
+boxes.forEach((box) => {
+  box.addEventListener("mouseenter", (e) => {
+    box.style.backgroundColor = "blue";
+  })
+})
+
+boxes.forEach((box) => {
+  box.addEventListener("mouseleave", (e) => {
+    box.style.backgroundColor = "white";
+  })
+})
