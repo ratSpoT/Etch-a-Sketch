@@ -12,6 +12,48 @@ for (let i=0; i<16; i++){
   container.appendChild(row);
 }
 
+
+// making the button to change size work
+let btn = document.querySelector("button.sizeChange");
+
+btn.addEventListener("click", () => {
+  let numOfSquares = parseInt(prompt("Enter the number squares per side (maximum 100)"));
+
+  // delete previous rows first
+  let rows = document.querySelectorAll("div.row");
+
+  rows.forEach((row) => {
+    row.remove();
+  });
+
+  // then create and add in the new rows
+  for (let i=0; i<numOfSquares; i++){
+    let row = document.createElement("div");
+    row.classList.add("row");
+    for (let j=0; j<numOfSquares; j++) {
+      let box = document.createElement("div");
+      box.classList.add("box");
+      box.style.width = `${960/numOfSquares}px`;
+      box.style.height = `${960/numOfSquares}px`;
+      row.appendChild(box);
+    }
+    container.appendChild(row);
+  }
+  let boxes = document.querySelectorAll("div.box");
+
+  boxes.forEach((box) => {
+    box.addEventListener("mouseenter", () => {
+      box.style.backgroundColor = "blue";
+    })
+  })
+  
+  boxes.forEach((box) => {
+    box.addEventListener("mouseleave", () => {
+      box.style.backgroundColor = "white";
+    });
+  });
+});
+
 // creating the hovering effect
 let boxes = document.querySelectorAll("div.box");
 
@@ -26,14 +68,3 @@ boxes.forEach((box) => {
     box.style.backgroundColor = "white";
   });
 });
-
-// making the button to change size work
-let btn = document.querySelector("button.sizeChange")';
-
-btn.addEventListener("click", () => {
-  let numOfSqaures = prompt("Enter the number squares per side (maximum 100)");
-  boxes.forEach((box) => {
-    box.style.width = `960/${numOfSqaures}px`;
-    box.style.height = `960/${numOfSqaures}px`;
-  });
-})
