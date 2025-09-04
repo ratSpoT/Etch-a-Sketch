@@ -35,21 +35,23 @@ btn.addEventListener("click", () => {
       box.classList.add("box");
       box.style.width = `${960/numOfSquares}px`;
       box.style.height = `${960/numOfSquares}px`;
-      row.appendChild(box);
+      row.appendChild(box);    
     }
     container.appendChild(row);
   }
+  
   let boxes = document.querySelectorAll("div.box");
 
   boxes.forEach((box) => {
     box.addEventListener("mouseenter", () => {
-      box.style.backgroundColor = "blue";
+      box.style.backgroundColor = `rgb(${Math.floor(Math.random() * (255+1))}, ${Math.floor(Math.random() * (255+1))}, ${Math.floor(Math.random() * (255+1))})`;
     })
   })
   
   boxes.forEach((box) => {
     box.addEventListener("mouseleave", () => {
-      box.style.backgroundColor = "white";
+      const newOpacity = Math.min(parseFloat(window.getComputedStyle(box).opacity) + 0.1,1);
+      box.style.opacity = newOpacity.toString();
     });
   });
 });
@@ -59,13 +61,13 @@ let boxes = document.querySelectorAll("div.box");
 
 boxes.forEach((box) => {
   box.addEventListener("mouseenter", () => {
-    box.style.backgroundColor = `rgb(${Math.floor(Math.random* (255+1))}, ${Math.floor(Math.random* (255+1))}, ${Math.floor(Math.random* (255+1))})`;
+    box.style.backgroundColor = `rgb(${Math.floor(Math.random() * (255+1))}, ${Math.floor(Math.random() * (255+1))}, ${Math.floor(Math.random() * (255+1))})`;
   })
 })
 
 boxes.forEach((box) => {
   box.addEventListener("mouseleave", () => {
-    box.style.backgroundColor = "white"
-    box.style.opacity = `${parseInt(box.style.opacity) + 0.1}`;
+    const newOpacity = Math.min(parseFloat(window.getComputedStyle(box).opacity) + 0.1,1);
+    box.style.opacity = newOpacity.toString();
   });
 });
