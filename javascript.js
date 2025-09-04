@@ -59,12 +59,13 @@ let boxes = document.querySelectorAll("div.box");
 
 boxes.forEach((box) => {
   box.addEventListener("mouseenter", () => {
-    box.style.backgroundColor = "blue";
+    box.style.backgroundColor = `rgb(${Math.floor(Math.random* (255+1))}, ${Math.floor(Math.random* (255+1))}, ${Math.floor(Math.random* (255+1))})`;
   })
 })
 
 boxes.forEach((box) => {
   box.addEventListener("mouseleave", () => {
-    box.style.backgroundColor = "white";
+    box.style.backgroundColor = "white"
+    box.style.opacity = `${parseInt(box.style.opacity) + 0.1}`;
   });
 });
